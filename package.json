@@ -1,0 +1,12 @@
+{
+  "name": "expense-splitter-root",
+  "version": "1.0.0",
+  "scripts": {
+    "postinstall": "cd server && npm install && cd ../client && npm install",
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "start": "concurrently \"npm start --prefix server\" \"npm run preview --prefix client\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.1"
+  }
+}
