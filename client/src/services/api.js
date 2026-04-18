@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const defaultUrl = `http://${window.location.hostname}:5000/api`;
+const isLocal = window.location.hostname === 'localhost' || window.location.hostname.startsWith('192.168.');
+const defaultUrl = isLocal ? `http://${window.location.hostname}:5000/api` : '/api';
 const API_URL = import.meta.env.VITE_API_URL || defaultUrl;
 
 const api = axios.create({

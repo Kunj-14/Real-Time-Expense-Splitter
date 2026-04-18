@@ -13,7 +13,8 @@ export const SocketProvider = ({ children }) => {
   useEffect(() => {
     let newSocket;
     if (user) {
-      const defaultUrl = `http://${window.location.hostname}:5000`;
+      const isLocal = window.location.hostname === 'localhost' || window.location.hostname.startsWith('192.168.');
+      const defaultUrl = isLocal ? `http://${window.location.hostname}:5000` : '';
       newSocket = io(import.meta.env.VITE_SERVER_URL || defaultUrl);
       setSocket(newSocket);
     }
