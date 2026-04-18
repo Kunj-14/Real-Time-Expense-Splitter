@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: expense-splitter-server
+    env: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FRONTEND_URL
+        value: https://real-time-expense-splitter.vercel.app
