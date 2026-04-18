@@ -13,7 +13,7 @@ export const SocketProvider = ({ children }) => {
   useEffect(() => {
     let newSocket;
     if (user) {
-      newSocket = io(import.meta.env.PROD ? '/' : 'http://localhost:5000');
+      newSocket = io(import.meta.env.VITE_SERVER_URL || 'http://localhost:5000');
       setSocket(newSocket);
     }
 
