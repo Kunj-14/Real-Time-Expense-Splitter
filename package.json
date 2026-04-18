@@ -4,7 +4,8 @@
   "scripts": {
     "postinstall": "cd server && npm install && cd ../client && npm install",
     "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
-    "start": "concurrently \"npm start --prefix server\" \"npm run preview --prefix client\""
+    "build": "npm run build --prefix client",
+    "start": "node server/index.js"
   },
   "devDependencies": {
     "concurrently": "^8.2.1"
